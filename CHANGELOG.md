@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### [1.0.0](https://github.com/plus3it/terraform-aws-tardigrade-ec2-managed-prefix-list/releases/tag/1.0.0)
 
-**Released**: {{ YYYY.MM.DD }}
+**Released**: 2024.11.11
 
 **Summary**:
 
