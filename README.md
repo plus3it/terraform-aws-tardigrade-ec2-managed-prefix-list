@@ -1,52 +1,34 @@
-# repo-template
-Generic repo template for Plus3IT repositories
+# terraform-aws-tardigrade-ec2-managed-prefix-list
 
-To use this template:
+Terraform module for managing an EC2 Prefix List and its entries.
 
-1. Select the green "Use this template" button, or [click here](https://github.com/plus3it/repo-template/generate).
-2. Select the repo Owner, give the repo a name, enter a description, select Public or Private, and click "Create repository from template".
-3. Clone the repository and create a new branch.
-4. Configure the following settings on your new repo.
-    * `GENERAL`
-        * `Features`
-            * Turn off Wikis, Sponsorships, Discussions, and Projects
-        * `Pull Requests`
-            * Turn off Squash Merging
-            * Turn off Rebase Merging
-            * Turn on Allow Auto-Merge
-            * Turn on Automatically delete head branches
-        * `Pushes`
-            * Limit how many branches can be updated in a single push: 2
-    * `COLLABORATORS and TEAMS`
-        * `Manage Access`
-            * Add relevant team roles, for example
-            * `tardigrade-admins` (Admin)
-            * `terraform` (Write)
-            * `releasebot` (Write)
-    * `Branches`
-        * `Create Branch Protection rule` for `main`
-            * Turn on Require pull request before merging
-            * Turn on Require approvals
-            * Turn on Dismiss stale pull requests...
-        * `Required Status Checks`
-            * As relevant to projects, for example
-                * WIP
-                * lint/actionlint
-                * lint/tardigradelint
-                * test / mockstacktest                
-            * Turn on Do not allow bypassing the above settings
-5. Edit the following files to customize them for the new repository:
-    * `LICENSE`
-        * Near the end of the file, edit the date and change the repository name
-    * `CHANGELOG.template.md`
-        * Rename to `CHANGELOG.md`, replacing the repo-template changelog
-        * Edit templated items for the new repo
-    * `.bumpversion.cfg`
-        * Edit the version number for the new repo, ask team if not sure what to
-          start with
-    * `README.md`
-        * Replace contents for the new repo
-    * `.github/`
-        * Inspect dependabot and workflow files in case changes are needed for
-          the new repo
-6. Commit the changes and open a pull request
+<!-- BEGIN TFDOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ec2_managed_prefix_list"></a> [ec2\_managed\_prefix\_list](#input\_ec2\_managed\_prefix\_list) | Object of attributes for the EC2 managed prefix list | <pre>object({<br>    name           = string<br>    address_family = optional(string, "IPv4")<br>    max_entries    = optional(number)<br>    tags           = optional(map(string), {})<br><br>    entries = optional(list(object({<br>      name        = string<br>      cidr        = string<br>      description = optional(string)<br>    })), [])<br>  })</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_ec2_managed_prefix_list"></a> [ec2\_managed\_prefix\_list](#output\_ec2\_managed\_prefix\_list) | Object of attributes for the managed prefix list |
+| <a name="output_ec2_managed_prefix_list_entries"></a> [ec2\_managed\_prefix\_list\_entries](#output\_ec2\_managed\_prefix\_list\_entries) | Object of attributes for the managed prefix list entries |
+
+<!-- END TFDOCS -->
