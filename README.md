@@ -22,7 +22,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ec2_managed_prefix_list"></a> [ec2\_managed\_prefix\_list](#input\_ec2\_managed\_prefix\_list) | Object of attributes for the EC2 managed prefix list | <pre>object({<br>    name           = string<br>    address_family = optional(string, "IPv4")<br>    max_entries    = optional(number)<br>    tags           = optional(map(string), {})<br><br>    entries = optional(list(object({<br>      name        = string<br>      cidr        = string<br>      description = optional(string)<br>    })), [])<br>  })</pre> | n/a | yes |
+| <a name="input_ec2_managed_prefix_list"></a> [ec2\_managed\_prefix\_list](#input\_ec2\_managed\_prefix\_list) | Object of attributes for the EC2 managed prefix list | <pre>object({<br/>    name           = string<br/>    address_family = optional(string, "IPv4")<br/>    max_entries    = optional(number)<br/>    tags           = optional(map(string), {})<br/><br/>    entries = optional(list(object({<br/>      name        = string<br/>      cidr        = string<br/>      description = optional(string)<br/>    })), [])<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
