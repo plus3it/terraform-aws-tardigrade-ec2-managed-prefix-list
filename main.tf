@@ -3,6 +3,7 @@ resource "aws_ec2_managed_prefix_list" "this" {
 
   address_family = var.ec2_managed_prefix_list.address_family
   max_entries    = coalesce(var.ec2_managed_prefix_list.max_entries, max(length(var.ec2_managed_prefix_list.entries), 1))
+  region         = var.ec2_managed_prefix_list.region
   tags           = var.ec2_managed_prefix_list.tags
 }
 
@@ -12,4 +13,5 @@ resource "aws_ec2_managed_prefix_list_entry" "this" {
   cidr           = each.value.cidr
   description    = coalesce(each.value.description, each.value.name)
   prefix_list_id = aws_ec2_managed_prefix_list.this.id
+  region         = var.ec2_managed_prefix_list.region
 }
